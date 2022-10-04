@@ -15,4 +15,11 @@ class ContactController extends Controller
         $contacts = Contact::select('email', 'name', 'surname', 'phone')->get();
         return ContactResource::collection($contacts);
     }
+
+    public function store(Request $request) 
+    {
+        $contact = Contact::create($request->all());
+
+        return new ContactResource($contact);
+    }
 }
