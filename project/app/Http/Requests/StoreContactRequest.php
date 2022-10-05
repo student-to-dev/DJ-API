@@ -25,7 +25,7 @@ class StoreContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required','unique:contacts,email','max:100','regex:/gmail|yahoo.com|myyahoo.com|proton.me|protonmail.com]/'],
+            'email' => ['required','unique:contacts,email','max:100','regex:/gmail.com|yahoo.com|myyahoo.com|proton.me|protonmail.com]/'],
             'name' => 'required',
             'surname' => 'required',
             'phone' => 'required',
