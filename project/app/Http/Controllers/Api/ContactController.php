@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Http\Resources\ContactResource;
+use App\Http\Requests\StoreContactRequest;
 use Illuminate\Support\Facades\Log;
 
 class ContactController extends Controller
@@ -16,7 +17,7 @@ class ContactController extends Controller
         return ContactResource::collection($contacts);
     }
 
-    public function store(Request $request) 
+    public function store(StoreContactRequest $request) 
     {
         $received = "" . $request; // need to format
         Log::channel('received')->info($received);
