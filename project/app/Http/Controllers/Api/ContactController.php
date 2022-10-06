@@ -19,8 +19,10 @@ class ContactController extends Controller
     public function store(Request $request) 
     {
         $received = "" . $request;
-        $sent = "";
         Log::channel('received')->info($received);
+
+        $sentInfo = "";
+        $sent = "" . $sentInfo;
         Log::channel('sent')->info($sent);
 
 
