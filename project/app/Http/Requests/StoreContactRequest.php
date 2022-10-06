@@ -26,8 +26,8 @@ class StoreContactRequest extends FormRequest
     {
         return [
             'email' => ['required','unique:contacts,email','max:100','regex:/gmail.com|yahoo.com|myyahoo.com|proton.me|protonmail.com]/'],
-            'name' => 'required',
-            'surname' => 'required',
+            'name' => 'required|min:2|max:50|regex:/^[A-Za-z-]+$/',
+            'surname' => 'required|min:2|max:50|regex:/^[A-Za-z-]+$/',
             'phone' => 'required',
         ];
     }
