@@ -14,8 +14,8 @@ class NameController extends Controller
      */
     public function index()
     {
-        
-        return 'LMAO';
+        $names = Name::all();
+        return response($names);
     }
 
     /**
@@ -36,7 +36,13 @@ class NameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required'
+        ]);
+
+        $names = Name::create($data);
+
+        return response($names, 200);
     }
 
     /**
@@ -68,9 +74,15 @@ class NameController extends Controller
      * @param  \App\Models\Name  $name
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Name $name)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required'
+        ]);
+
+        $names = Name::where('id', $id)->update($data, $id );
+
+        return response($data, 200);
     }
 
     /**
@@ -79,8 +91,11 @@ class NameController extends Controller
      * @param  \App\Models\Name  $name
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Name $name)
+    public function destroy($id)
     {
-        //
+        $names = Name::find($id);
+        $names->delete();
+
+        return response('Name deleted', 200);
     }
 }
