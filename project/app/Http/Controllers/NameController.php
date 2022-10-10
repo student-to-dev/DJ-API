@@ -15,7 +15,7 @@ class NameController extends Controller
     public function index()
     {
         $names = Name::all();
-        return response($names);
+        return response($names, 200);
     }
 
     /**

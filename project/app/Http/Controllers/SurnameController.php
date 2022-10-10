@@ -14,7 +14,8 @@ class SurnameController extends Controller
      */
     public function index()
     {
-        return 'KEKW';
+        $surnames = Surname::all();
+        return response($surnames, 200);
     }
 
     /**
@@ -34,7 +35,13 @@ class SurnameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'surname' => 'required'
+        ]);
+
+        $surnames = Surname::create($data);
+
+        return response($surnames, 200);
     }
 
     /**
@@ -65,9 +72,15 @@ class SurnameController extends Controller
      * @param  \App\Models\Surname  $surname
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Surname $surname)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'surname' => 'required'
+        ]);
+
+        $surnames = Surname::where('id', $id)->update($data, $id);
+
+        return response($data, 200);
     }
 
     /**
@@ -76,8 +89,11 @@ class SurnameController extends Controller
      * @param  \App\Models\Surname  $surname
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Surname $surname)
+    public function destroy($id)
     {
-        //
+        $surnames = Surname::find($id);
+        $surnames->delete();
+
+        return response('Surname deleted', 200);
     }
 }
