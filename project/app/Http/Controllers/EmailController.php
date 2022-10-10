@@ -14,7 +14,9 @@ class EmailController extends Controller
      */
     public function index()
     {
-        return 'YOLO@gmail.com';
+        $emails = Email::all();
+
+        return response($emails, 200);
     }
 
     /**
@@ -65,9 +67,15 @@ class EmailController extends Controller
      * @param  \App\Models\Email  $email
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Email $email)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'email' => ['required', 'email']
+        ]);
+
+        $emails = Email::where('id', $id)->update($data, $id);
+
+        return response($data, 200);
     }
 
     /**
@@ -76,8 +84,11 @@ class EmailController extends Controller
      * @param  \App\Models\Email  $email
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Email $email)
+    public function destroy($id)
     {
-        //
+        $emails = Email::find($id);
+        $emails->delete();
+
+        return response('Email deleted', 200);
     }
 }
