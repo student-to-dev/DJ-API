@@ -14,7 +14,9 @@ class PhoneNumberController extends Controller
      */
     public function index()
     {
-        return ' CALL 911';
+        $phone_numbers = PhoneNumber::all();
+
+        return response($phone_numbers, 200);
     }
 
     /**
@@ -35,7 +37,13 @@ class PhoneNumberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'phone_number' => 'required'
+        ]);
+
+        $phone_numbers = PhoneNumber::create($data);
+
+        return response($phone_numbers, 200);
     }
 
     /**
@@ -67,9 +75,15 @@ class PhoneNumberController extends Controller
      * @param  \App\Models\PhoneNumber  $phoneNumber
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PhoneNumber $phoneNumber)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'phone_number' => 'required'
+        ]);
+
+        $phone_numbers = PhoneNumber::where('id', $id)->update($data, $id);
+
+        return response($data, 200);
     }
 
     /**
@@ -78,8 +92,11 @@ class PhoneNumberController extends Controller
      * @param  \App\Models\PhoneNumber  $phoneNumber
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PhoneNumber $phoneNumber)
+    public function destroy($id)
     {
-        //
+        $phone_numbers = PhoneNumber::find($id);
+        $phone_numbers->delete();
+
+        return response('Phone number deleted, 200');
     }
 }
