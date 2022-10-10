@@ -36,7 +36,13 @@ class EmailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'email' => ['required', 'email']
+        ]);
+
+        $emails = Email::create($data);
+
+        return response($emails, 200);
     }
 
     /**
