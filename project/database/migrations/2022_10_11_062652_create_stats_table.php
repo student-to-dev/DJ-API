@@ -15,16 +15,15 @@ return new class extends Migration
     {
         Schema::create('stats', function (Blueprint $table) {
             $table->id();
-            $table->string('nameErrors'); // bendras count
+            $table->string('nameErrors'); // total count
             $table->string('nameWrongCharacter'); // english a-z
             $table->string('nameNumberInput');
-            $table->string('nameTooLong'); //15
-            $table->string('surnameTooLong'); //20
-            $table->string('nameTooShort'); // 3
-            $table->string('surnameTooShort'); // 4
+            $table->string('nameTooLong'); // max15
+            $table->string('surnameTooLong'); // max20
+            $table->string('nameTooShort'); // min3
+            $table->string('surnameTooShort'); // min4
             $table->string('nameNoSpace');
-            $table->string('nameTooManySpace'); // 1 space only
-            // $table->string('nameAlready');
+            $table->string('nameTooManySpace');
 
             $table->string('emailErrors');
             $table->string('emailWrongDomain'); //@yahoo.com, @gmail.com, @protonmail.com only
@@ -33,19 +32,14 @@ return new class extends Migration
             $table->string('emailBadCharacterBefore@sign');
             $table->string('emailNameTooShort'); // 3
             $table->string('emailNameTooLong'); // 30
-            $table->string('emailNotUnique'); // 30
 
             // /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]
             // {1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            
             $table->string('phoneErrors');
             $table->string('phoneTooShort');
             $table->string('phoneTooLong');
-            $table->string('phoneNotUnique');
-            $table->string('phoneErrors');
-
-
-
-
+            $table->string('phoneNotEuropean');
 
             $table->timestamps();
         });
