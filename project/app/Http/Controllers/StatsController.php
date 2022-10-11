@@ -3,18 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Stats;
-use Illuminate\Http\Request;
 
 class StatsController extends Controller
 {
-    public function store(Request $request)
+    public function store($data)
     {
-        //
+        
     }
 
-    public function show(Stats $stats)
+    public function showStats(Stats $stats)
     {
-        //
     }
 
     public function showNameStats()
@@ -29,6 +27,6 @@ class StatsController extends Controller
 
     public function showPhoneStats()
     {
-        
+
     }
 }
