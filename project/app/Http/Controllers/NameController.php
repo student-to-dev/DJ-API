@@ -10,6 +10,8 @@ class NameController extends Controller
 {
     public function store(StatsController $stats, Request $request)
     {
+        dd($request->input('name'));
+
         $data = $request->input('name');
         $response = Name::class()->validate($data);
         $stats->store($data);

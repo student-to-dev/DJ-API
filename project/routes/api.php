@@ -13,11 +13,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/stats', [statsCon::class, 'showStats']);
 
+
 Route::get('/stats/name', [statsCon::class, 'showNameStats']);
-Route::post('/name?name={nameSurname}', [nameCon::class, 'store']);
+Route::get('/name', [nameCon::class, 'store']);
+
 
 Route::get('/stats/email', [statsCon::class, 'showEmailStats']);
-Route::post('/email?email={email}', [emailCon::class, 'store']);
+Route::get('/email', [emailCon::class, 'store']);
+
 
 Route::get('/stats/phone', [statsCon::class, 'showPhoneStats']);
 Route::get('/phone', [phoneCon::class, 'store']);

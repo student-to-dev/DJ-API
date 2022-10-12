@@ -64,13 +64,10 @@ class PhoneController extends Controller
     //                 '48' => 'Poland',
     //                 '49' => 'Germany',
     // ];
-        // $x = $request->input();
-        // $x = (int)($x);
-        // dd($request->input());
+
         $validator = FacadesValidator::make($request->all(), [
-            'phone' => 'phone:LV,LT,DE',
-            // 'phone' => 'phone:AUTO,UK,IS,NO,LI,CH,UA,GE,BE,EL,LT,PT,BG,ES,LU,RO,CZ,FR,HU,SI,DK,HR,MT,SK,DE,IT,NL,FI,EE,IE,CY,LV,AT,PL,SE|min:3',
-            // 'phone' => Rule::phone()->country(['LV', 'LT', 'DE'])
+            'phone' => 'phone:LV,LT,DE|min:3',
+            // 'phone' => 'phone:UK,IS,NO,LI,CH,UA,GE,BE,EL,LT,PT,BG,ES,LU,RO,CZ,FR,HU,SI,DK,HR,MT,SK,DE,IT,NL,FI,EE,IE,CY,LV,AT,PL,SE|min:3',
         ],
         [
             'phone' => ' blogai',
@@ -84,3 +81,4 @@ class PhoneController extends Controller
     }
 
 }
+// 
