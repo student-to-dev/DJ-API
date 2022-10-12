@@ -20,4 +20,4 @@ Route::get('/stats/email', [statsCon::class, 'showEmailStats']);
 Route::post('/email?email={email}', [emailCon::class, 'store']);
 
 Route::get('/stats/phone', [statsCon::class, 'showPhoneStats']);
-Route::post('/phone?phone={phone}', [phoneCon::class, 'store']);
+Route::get('/phone', [phoneCon::class, 'store']);
