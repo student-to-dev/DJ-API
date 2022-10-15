@@ -13,7 +13,7 @@ class StoreNameRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class StoreNameRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nameSurname' => 'required|min:2|max:50|regex:/^[A-Za-z-]+$/',
         ];
+
+        
+        
     }
+    public function messages()
+{
+    return [
+        'nameSurname.min' => 'low characters'
+    ];
+}
 }
