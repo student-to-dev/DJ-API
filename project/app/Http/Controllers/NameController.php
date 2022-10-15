@@ -19,33 +19,20 @@ class NameController extends Controller
 
        // public function validateName(){
 
-            $v = $request;
-            $messages = $v->messages();
-            if ($messages != null) {
+            //$v = $request;
+            $messages = $request->messages('error');
+            if ($messages !== null) {
                 foreach ($messages as $error) {
-                    DB::table('names')->insert([
+                  // DB::table('names')->insert
+                   Name::create
+                    ([
                         'errors' => $error
         
                     ]);
+                    
                 }
+                return response($messages, 422);
             }
-      //  }
-//         Name::create([
-//             'nameSurname' => $request->input('nameSurname'),
-//         ]);
-//         $validator = Validator::make($request->all(),
-//        [
-//            'nameSurname' => ['required', 'min:4', 'max:64'],
            
-//        ],
-// [
-// 'nameSurname.min' => 'Too low characters'
-// ]
-//        );
-//        if ($validator->fails()) {
-//           // $request->flash();
-//            return redirect()->back()->withErrors($validator);
-        
-//     }
 }
 }
