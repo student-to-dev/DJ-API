@@ -15,7 +15,7 @@ Route::get('/stats', [statsCon::class, 'showStats']);
 
 
 Route::get('/stats/name', [statsCon::class, 'showNameStats']);
-Route::get('/name', [nameCon::class, 'store']);
+Route::post('/name', [nameCon::class, 'store']);
 
 
 Route::get('/stats/email', [statsCon::class, 'showEmailStats']);

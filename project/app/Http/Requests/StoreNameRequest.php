@@ -24,7 +24,9 @@ class StoreNameRequest extends FormRequest
     public function rules()
     {
         return [
-            'nameSurname' => 'required|min:2|max:50|regex:/^[A-Za-z-]+$/',
+          //  'nameSurname' => 'required|min:2|max:50|regex:/^[A-Za-z-]+$/',
+            'nameSurname' => 'required',
+            'nameSurname' => 'min:2'
         ];
 
         
@@ -33,7 +35,9 @@ class StoreNameRequest extends FormRequest
     public function messages()
 {
     return [
-        'nameSurname.min' => 'low characters'
+        'nameSurname.min' => 'low characters',
+        'nameSurname.required' => 'field is empty (required)',
+        'nameSurname.max' => 'too much...'
     ];
 }
 }
