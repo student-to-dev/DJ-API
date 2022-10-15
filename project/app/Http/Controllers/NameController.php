@@ -13,24 +13,39 @@ use App\Http\Requests\StoreNameRequest;
 class NameController extends Controller
 {
 
-    public function store(Request $request) 
+    public function store(StoreNameRequest $request) 
     {
-        Name::create([
-            'nameSurname' => $request->input('nameSurname'),
-        ]);
-        $validator = Validator::make($request->all(),
-       [
-           'nameSurname' => ['required', 'min:4', 'max:64'],
-           
-       ],
-[
-'nameSurname.min' => 'Too low characters'
-]
-       );
-       if ($validator->fails()) {
-          // $request->flash();
-           return redirect()->back()->withErrors($validator);
+        //$name = Name::create($request->all());
+
+       // public function validateName(){
+
+            $v = $request;
+            $messages = $v->messages();
+            if ($messages != null) {
+                foreach ($messages as $error) {
+                    DB::table('names')->insert([
+                        'errors' => $error
         
-    }
+                    ]);
+                }
+            }
+      //  }
+//         Name::create([
+//             'nameSurname' => $request->input('nameSurname'),
+//         ]);
+//         $validator = Validator::make($request->all(),
+//        [
+//            'nameSurname' => ['required', 'min:4', 'max:64'],
+           
+//        ],
+// [
+// 'nameSurname.min' => 'Too low characters'
+// ]
+//        );
+//        if ($validator->fails()) {
+//           // $request->flash();
+//            return redirect()->back()->withErrors($validator);
+        
+//     }
 }
 }
