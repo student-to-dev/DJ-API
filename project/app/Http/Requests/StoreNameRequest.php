@@ -26,7 +26,7 @@ class StoreNameRequest extends FormRequest
         return [
           //  'nameSurname' => 'required|min:2|max:50|regex:/^[A-Za-z-]+$/',
             'nameSurname' => 'required',
-            'nameSurname' => 'min:2'
+            'nameSurname' => 'min:4'
         ];
 
         
