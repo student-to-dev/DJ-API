@@ -15,52 +15,35 @@ class NameController extends Controller
 
     public function store(Request $request) 
     {
-        //$name = Name::create($request->all());
-
-       // public function validateName(){
-
-          //  $v = $request;
           $validator = Validator::make($request->all(),
        [
-           'nameSurname' => ['required', 'min:3', 'max:64'],        
+           'nameSurname' => ['required', 'min:3', 'max:64','regex:/^[A-Za-z-]+$/'],        
        ],
                 [
-                'nameSurname.min' => 'Too low characters'
+                'nameSurname.min' => 'Too low characters',
+                'nameSurname.required' => 'Empty field',
+                'nameSurname.max' => 'Too much',
+                'nameSurname.regex' => 'wrong character(s)',
                 ]
        );
 
           if ($validator->fails()) {
-            $messages = $validator->errors();
-           // foreach ($messages as $error) {
-                //DB::table('names')->insert
-               Name::create
+            $messages = $validator->errors()->all();
+          // dd($messages);
+           foreach ($messages as $message) {
+            
+            Name::create
                   ([
-                      'errors' => $messages
+                      'errors' => $message,
+                      'nameSurname' => $request->input('nameSurname'),
       
                   ]);
                   
-          //  }
-              return response($messages, 200);
         }
-            //return redirect()->back()->withErrors($validator);
+        return response($messages, 200);
+    }
     }
 }
  
            
-            // $messages = $request->messages('error');
-            
-            // if ($messages != null) {
-            //     foreach ($messages as $error) {
-            //       // DB::table('names')->insert
-            //        Name::create
-            //         ([
-            //             'errors' => $error
-        
-            //         ]);
-                    
-            //     }
-            //     return response($messages, 422);
-            // }
-           
-// }
-// }
+          
