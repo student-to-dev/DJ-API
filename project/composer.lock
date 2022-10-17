@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "83fd706d29f49e16bc8020a7e0588645",
+    "content-hash": "ec007a50e562617d60531e6ca31f3dc4",
     "packages": [
         {
             "name": "brick/math",
@@ -61,6 +61,62 @@
                 }
             ],
             "time": "2022-08-10T22:54:19+00:00"
+        },
+        {
+            "name": "brick/phonenumber",
+            "version": "0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/brick/phonenumber.git",
+                "reference": "a57af1217d336c6b7535ba035394985b2f8177d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/brick/phonenumber/zipball/a57af1217d336c6b7535ba035394985b2f8177d6",
+                "reference": "a57af1217d336c6b7535ba035394985b2f8177d6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "giggsey/libphonenumber-for-php": "^7.0 || ^8.0",
+                "php": "^7.1 || ^8.0"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.0",
+                "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Brick\\PhoneNumber\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Phone number library",
+            "keywords": [
+                "brick",
+                "phone",
+                "phone number",
+                "phonenumber"
+            ],
+            "support": {
+                "issues": "https://github.com/brick/phonenumber/issues",
+                "source": "https://github.com/brick/phonenumber/tree/0.4.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/BenMorel",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/brick/phonenumber",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-09-02T23:16:18+00:00"
         },
         {
             "name": "dflydev/dot-access-data",

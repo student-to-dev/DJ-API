@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Brick\PhoneNumber\PhoneNumber;
+use Brick\PhoneNumber\PhoneNumberParseException;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Validator;
@@ -77,23 +79,42 @@ class PhoneController extends Controller
         // $messages->add('phone','My Custasd');
             // dd($codes);
 
-        $twoChars = substr($request->phone, 0, 2);
-        $threeChars = substr($request->phone, 0, 3);
-        $fourChars = substr($request->phone, 0, 4);
+        // $twoChars = substr($request->phone, 0, 2);
+        // $threeChars = substr($request->phone, 0, 3);
+        // $fourChars = substr($request->phone, 0, 4);
         
-        foreach($codes as $key => $val){
-            if($fourChars == $key){
-                return $val;
-            }
-            else if($threeChars == $key){
-                return $val;
-            }
-            else if($twoChars == $key){
-                return $val;
-            }
-                
-            
+        // foreach($codes as $key => $val){
+        //     if($twoChars == $key){
+        //         return $val;
+        //     }
+        //     else if($threeChars == $key){
+        //         return $val;
+        //     }
+        //     else if($fourChars == $key){
+        //         return $val;
+        //     }  
+        // }
+
+        $number = PhoneNumber::parse('+'.$request->phone);
+        $numberInfo = ([
+            'region' => $number->getRegionCode(),
+            'country' => $number->getCountryCode(),
+            'nationalNumber' => $number->getNationalNumber()
+        ]);
+        $numberError = ([
+            'error' => 'Bad number'
+        ]);
+        if ($number->isPossibleNumber()) {
+            return $numberInfo;
+        }else{
+            return $numberError;
         }
+        
+        // if ($number->isValidNumber()) {
+        //    return 'valid';
+        // }
+                
+          
 
 
     }
