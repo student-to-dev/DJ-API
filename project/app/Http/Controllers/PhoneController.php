@@ -66,7 +66,7 @@ class PhoneController extends Controller
     // ];
 
         $validator = FacadesValidator::make($request->all(), [
-            'phone' => 'phone:LV,LT,DE|min:3',
+            'phone' => 'phone:LV,LT,DE|min:5',
             // 'phone' => 'phone:UK,IS,NO,LI,CH,UA,GE,BE,EL,LT,PT,BG,ES,LU,RO,CZ,FR,HU,SI,DK,HR,MT,SK,DE,IT,NL,FI,EE,IE,CY,LV,AT,PL,SE|min:3',
         ],
         [
@@ -74,7 +74,7 @@ class PhoneController extends Controller
             'phone.min' => 'per mazai'
         ]);
         $messages = $validator->errors();
-        // $messages->add('phone','My Custasd');
+        //$messages->add('phone','My Custasd');
 
     return response($messages, 200);
 

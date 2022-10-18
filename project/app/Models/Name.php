@@ -9,16 +9,10 @@ class Name extends Model
 {
     use HasFactory;
 
-    static public function validate($data) 
+    protected $fillable = ['nameSurname', 'errors'];
+    public function country() 
     {
-        
-        $response = [
-            'valid' => true,
-            'status' => 200,
-            'message' => "MJ"
-
-        ];
-        return $response;
+        return $this->belongsTo('App\Models\Stats');
     }
 }
 // if validate = true {
