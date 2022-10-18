@@ -20,14 +20,15 @@ class NameController extends Controller
            'nameSurname' => ['required', 'min:3', 'max:64','regex:/^[A-Za-z-]+$/'],        
        ],
                 [
-                'nameSurname.min' => 'Too low characters',
+                'nameSurname.min' => 'Too low characters',      // nameTooShort  surnameTooShort
                 'nameSurname.required' => 'Empty field',
-                'nameSurname.max' => 'Too much',
-                'nameSurname.regex' => 'wrong character(s)',
+                'nameSurname.max' => 'Too much',                // nameTooLong
+                'nameSurname.regex' => 'wrong character(s)',    // nameWrongCharacter
                 ]
        );
-
-          if ($validator->fails()) {
+                //    nameNumberInput	surnameTooLong	nameNoSpace	nameTooManySpace
+          
+                    if ($validator->fails()) {
             $messages = $validator->errors()->all();
           // dd($messages);
            foreach ($messages as $message) {

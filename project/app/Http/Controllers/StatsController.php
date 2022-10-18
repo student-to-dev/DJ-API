@@ -20,11 +20,20 @@ class StatsController extends Controller
 
     public function showNameStats()
     {
-       
-            $total = Name::groupBy('errors')
-            ->selectRaw('count(*) as count, errors')
-            ->pluck('count', 'errors');
-            return $total->all();
+        
+         // in collections:   
+         $total = Name::groupBy('errors')
+            ->selectRaw('count(*) as total, errors')
+            ->get();
+
+            //
+        //  $total = Name::groupBy('errors')
+        //      ->selectRaw('count(*) as count, errors')
+        //      ->pluck('count', 'errors');
+           // dd($total);
+
+           
+            return response($total);
       
     }
 
