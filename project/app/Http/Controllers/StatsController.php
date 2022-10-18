@@ -20,12 +20,12 @@ class StatsController extends Controller
 
     public function showNameStats()
     {
-       // function totalRepeatedName() {
+       
             $total = Name::groupBy('errors')
             ->selectRaw('count(*) as count, errors')
             ->pluck('count', 'errors');
             return $total->all();
-      //  }
+      
     }
 
     public function showEmailStats()
