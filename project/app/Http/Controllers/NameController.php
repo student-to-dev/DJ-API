@@ -17,13 +17,18 @@ class NameController extends Controller
     {
           $validator = Validator::make($request->all(),
        [
-           'nameSurname' => ['required', 'min:3', 'max:64','regex:/^[A-Za-z-]+$/'],        
+           'nameSurname' => ['required', 'min:3', 'max:35',
+                           // 'not_regex:/^[0-9]+$/',
+                            //'regex:/^[a-zA-Z\'\-\040]+$/',
+                            'regex:/~^(?:[\p{L}\p{Mn}\p{Pd}\'\x{2019}]+\s[\p{L}\p{Mn}\p{Pd}\'\x{2019}]+\s?)+$/u',
+                        ],      
        ],
                 [
                 'nameSurname.min' => 'Too low characters',      // nameTooShort  surnameTooShort
                 'nameSurname.required' => 'Empty field',
                 'nameSurname.max' => 'Too much',                // nameTooLong
                 'nameSurname.regex' => 'wrong character(s)',    // nameWrongCharacter
+               // 'nameSurname.not_regex' => 'no numbers',    // nameWrongCharacter
                 ]
        );
                 //    nameNumberInput	surnameTooLong	nameNoSpace	nameTooManySpace
@@ -37,7 +42,6 @@ class NameController extends Controller
                   ([
                       'errors' => $message,
                       'nameSurname' => $request->input('nameSurname'),
-      
                   ]);
                   
         }

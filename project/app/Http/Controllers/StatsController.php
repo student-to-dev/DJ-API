@@ -38,9 +38,9 @@ class StatsController extends Controller
                  ->select('errors', DB::raw('count(*) as total'))
                  ->groupBy('errors')
                  ->get();
-
-           
-            return response($total);
+        
+               //  dd($total);
+          return ($total);
       
     }
 
