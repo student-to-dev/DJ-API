@@ -20,7 +20,7 @@ class NameController extends Controller
            'nameSurname' => ['required', 'min:3', 'max:35',
                            // 'not_regex:/^[0-9]+$/',
                             //'regex:/^[a-zA-Z\'\-\040]+$/',
-                            'regex:/~^(?:[\p{L}\p{Mn}\p{Pd}\'\x{2019}]+\s[\p{L}\p{Mn}\p{Pd}\'\x{2019}]+\s?)+$/u',
+                            'regex:/~^(?:[\p{L}\p{Mn}\p{Pd}\'\x{2019}]+\s[\p{L}\p{Mn}\p{Pd}\'\x{2019}]+\s?)+$/u', 
                         ],      
        ],
                 [

@@ -22,22 +22,23 @@ class StatsController extends Controller
     public function showNameStats(Request $request)
     {
         
-         // in collections:   
+         // in collections:    
+
         //  $total = Name::groupBy('errors')
         //     ->selectRaw('count(*) as total, errors')
         //     ->get();
 
             //
-        //  $total = Name::groupBy('errors')
-        //      ->selectRaw('count(*) as count, errors')
-        //      ->pluck('count', 'errors');
+          $total = Name::groupBy('errors')
+              ->selectRaw('count(*) as count, errors')
+              ->pluck('count', 'errors');
            // dd($total);
 
 
-           $total = DB::table('names')
-                 ->select('errors', DB::raw('count(*) as total'))
-                 ->groupBy('errors')
-                 ->get();
+        //    $total = DB::table('names')
+        //          ->select('errors', DB::raw('count(*) as total'))
+        //          ->groupBy('errors')
+        //          ->get();
         
                //  dd($total);
           return ($total);
