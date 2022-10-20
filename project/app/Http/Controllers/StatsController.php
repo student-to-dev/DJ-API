@@ -19,7 +19,7 @@ class StatsController extends Controller
         
     }
 
-    public function showNameStats(Request $request)
+    public function showNameStats()
     {
         
          // in collections:    
@@ -29,16 +29,36 @@ class StatsController extends Controller
         //     ->get();
 
             //
-          $total = Name::groupBy('errors')
-              ->selectRaw('count(*) as count, errors')
-              ->pluck('count', 'errors');
-           // dd($total);
+        //   $total = Name::groupBy('errors')
+        //       ->selectRaw('count(*) as count, errors')
+        //       ->pluck('count', 'errors');
+        //    // dd($total);
+        
 
-
-        //    $total = DB::table('names')
-        //          ->select('errors', DB::raw('count(*) as total'))
-        //          ->groupBy('errors')
-        //          ->get();
+            $total = DB::table('names')
+                  ->select('errors', DB::raw('count(*) as total'))
+                  ->groupBy('errors')
+                  ->get();
+            
+                  foreach($total as $error)
+               // dd($error->errors);
+                    {
+                        if ($error->errors == 'Field must be at least 3 characters') {
+                            
+                            Stats::create
+                  ([
+                      'nameTooShort' => $error->total,                     
+                  ]);
+                        }
+                        elseif ($error->errors == 'field must be in Name Surname format, numbers and special characters are not allowed') {
+                            
+                            DB::table('stats')->where('id', 14)->update
+                  ([
+                      'nameWrongCharacter' => $error->total,                     
+                  ]);
+                        }
+                        
+                    }
         
                //  dd($total);
           return ($total);

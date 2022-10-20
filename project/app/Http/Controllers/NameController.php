@@ -69,7 +69,7 @@ class NameController extends Controller
                   ]);
                   
         }
-        return response($messages, 200);
+        return $messages;
     }
     }
 }
