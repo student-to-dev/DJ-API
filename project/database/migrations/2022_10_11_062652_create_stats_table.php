@@ -32,10 +32,6 @@ return new class extends Migration
             $table->string('emailBadCharacterBefore@sign')->nullable();
             $table->string('emailNameTooShort')->nullable(); // 3
             $table->string('emailNameTooLong')->nullable(); // 30
-
-            // /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]
-            // {1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            
             $table->string('phoneErrors')->nullable();
             $table->string('phoneTooShort')->nullable();
             $table->string('phoneTooLong')->nullable();
