@@ -25,14 +25,23 @@ class StatsController extends Controller
         
          // in collections:    
 
-        //  $total = Name::groupBy('errors')
-        //     ->selectRaw('count(*) as total, errors')
-        //     ->get();
+        //   $total = Name::groupBy('errors')
+        //      ->selectRaw('count(*) as total, errors')
+        //      ->get()
+        //      ->sortByDesc('total');
+
+             $total = DB::table('names')
+                  ->select('errors', DB::raw('count(*) as total'))
+                  ->groupBy('errors')
+                  ->get()
+                  ->sortByDesc('total');
 
             //
-           $total = Name::groupBy('errors')
-               ->selectRaw('count(*) as count, errors')
-               ->pluck('count', 'errors');
+        //    $total = Name::groupBy('errors')
+        //        ->selectRaw('count(*) as count, errors')
+        //        ->sortBy('count')
+        //        ->pluck('count', 'errors');
+               
        
           return ($total);
       

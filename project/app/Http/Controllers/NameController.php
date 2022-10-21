@@ -86,6 +86,20 @@ class NameController extends Controller
                       'nameWrongCharacter' => $error->total,                     
                   ]);
                         }
+                        elseif ($error->errors == 'Empty field') {
+                            
+                            DB::table('stats')->where('id', 1)->update
+                  ([
+                      'nameEmpty' => $error->total,                     
+                  ]);
+                        }
+                        elseif ($error->errors == 'Too much symbols, max allowed 35 characters') {
+                            
+                            DB::table('stats')->where('id', 1)->update
+                  ([
+                      'nameTooLong' => $error->total,                     
+                  ]);
+                        }
                         
                     }
         return $messages;

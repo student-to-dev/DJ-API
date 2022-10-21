@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('nameWrongCharacter')->nullable(); // english a-z
             $table->string('nameNumberInput')->nullable();
             $table->string('nameTooLong')->nullable(); // max15
-            $table->string('surnameTooLong')->nullable(); // max20
+            $table->string('nameEmpty')->nullable();
             $table->string('nameTooShort')->nullable(); // min3
             $table->string('surnameTooShort')->nullable(); // min4
             $table->string('nameNoSpace')->nullable();
