@@ -18,9 +18,6 @@ class NameController extends Controller
           $validator = Validator::make($request->all(),
        [
            'nameSurname' => ['required', 'min:3', 'max:35',
-                           // 'not_regex:/^[0-9]+$/',
-                            //'regex:/^[a-zA-Z\'\-\040]+$/',
-                           // 'regex:/^[\\p{L} \'.-]+$/',
                           'regex:/^(?:[\p{L}\p{Mn}\p{Pd}\'\x{2019}]+\s[\p{L}\p{Mn}\p{Pd}\'\x{2019}]+\s?)+$/u', 
 
                                                 /* ^   # start of subject
@@ -59,7 +56,6 @@ class NameController extends Controller
           
                     if ($validator->fails()) {
             $messages = $validator->errors()->all();
-          // dd($messages);
            foreach ($messages as $message) {
             
             Name::create
@@ -69,6 +65,29 @@ class NameController extends Controller
                   ]);
                   
         }
+        $total = DB::table('names')
+                  ->select('errors', DB::raw('count(*) as total'))
+                  ->groupBy('errors')
+                  ->get();
+            
+                  foreach($total as $error)
+                    {
+                        if ($error->errors == 'Field must be at least 3 characters') {
+                            
+                            DB::table('stats')->where('id', 1)->update
+                  ([
+                      'nameTooShort' => $error->total,                     
+                  ]);
+                        }
+                        elseif ($error->errors == 'field must be in Name Surname format, numbers and special characters are not allowed') {
+                            
+                            DB::table('stats')->where('id', 1)->update
+                  ([
+                      'nameWrongCharacter' => $error->total,                     
+                  ]);
+                        }
+                        
+                    }
         return $messages;
     }
     }
