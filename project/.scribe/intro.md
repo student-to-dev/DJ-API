@@ -1,6 +1,6 @@
 # Introduction
 
-
+In this documentation you can see DJ-API endpoints and try how it works
 
 This documentation aims to provide all the information you need to work with DJ-API.
 
@@ -10,5 +10,5 @@ You can switch the language used with the tabs at the top right (or from the nav
 > Base URL
 
 ```yaml
-http://localhost
+http://localhost/DJ-API/project/public/
 ```

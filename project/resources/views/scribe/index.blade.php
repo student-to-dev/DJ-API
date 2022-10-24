@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>dj-api Documentation</title>
+    <title>DJ-API documentation</title>
 
     <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
 
@@ -25,12 +25,6 @@
                     body .content .javascript-example code { display: none; }
             </style>
 
-    <script>
-        var baseUrl = "http://localhost";
-        var useCsrf = Boolean();
-        var csrfUrl = "/sanctum/csrf-cookie";
-    </script>
-    <script src="{{ asset("/vendor/scribe/js/tryitout-4.1.0.js") }}"></script>
 
     <script src="{{ asset("/vendor/scribe/js/theme-default-4.1.0.js") }}"></script>
 
@@ -97,8 +91,6 @@
             </div>
 
             <ul class="toc-footer" id="toc-footer">
-                            <li><a href="{{ route("scribe.postman") }}">View Postman collection</a></li>
-                            <li><a href="{{ route("scribe.openapi") }}">View OpenAPI spec</a></li>
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
@@ -110,13 +102,14 @@
     <div class="dark-box"></div>
     <div class="content">
         <h1 id="introduction">Introduction</h1>
+<p>In this documentation you can see DJ-API endpoints and try how it works</p>
 <p>This documentation aims to provide all the information you need to work with DJ-API.</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
 You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
 <blockquote>
 <p>Base URL</p>
 </blockquote>
-<pre><code class="language-yaml">http://localhost</code></pre>
+<pre><code class="language-yaml">http://localhost/DJ-API/project/public/</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>This API is not authenticated.</p>
@@ -138,14 +131,14 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/stats" \
+    --get "http://localhost/DJ-API/project/public/api/stats" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/stats"
+    "http://localhost/DJ-API/project/public/api/stats"
 );
 
 const headers = {
@@ -178,7 +171,7 @@ access-control-allow-origin: *
 
 <code class="language-json">[
     {
-        &quot;Empty field&quot;: &quot;2&quot;,
+        &quot;Empty field&quot;: &quot;16&quot;,
         &quot;Field must be at least 3 characters&quot;: &quot;3&quot;,
         &quot;field must be in Name Surname format, numbers and special characters are not allowed&quot;: &quot;7&quot;,
         &quot;Too much symbols, max allowed 35 characters&quot;: &quot;3&quot;
@@ -206,20 +199,6 @@ access-control-allow-origin: *
       onsubmit="event.preventDefault(); executeTryOut('GETapi-stats', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-stats"
-                    onclick="tryItOut('GETapi-stats');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-stats"
-                    onclick="cancelTryOut('GETapi-stats');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-stats" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -240,14 +219,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/stats/name" \
+    --get "http://localhost/DJ-API/project/public/api/stats/name" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/stats/name"
+    "http://localhost/DJ-API/project/public/api/stats/name"
 );
 
 const headers = {
@@ -279,6 +258,10 @@ access-control-allow-origin: *
         </details>         <pre>
 
 <code class="language-json">{
+    &quot;0&quot;: {
+        &quot;errors&quot;: &quot;Empty field&quot;,
+        &quot;total&quot;: 16
+    },
     &quot;2&quot;: {
         &quot;errors&quot;: &quot;field must be in Name Surname format, numbers and special characters are not allowed&quot;,
         &quot;total&quot;: 7
@@ -290,10 +273,6 @@ access-control-allow-origin: *
     &quot;3&quot;: {
         &quot;errors&quot;: &quot;Too much symbols, max allowed 35 characters&quot;,
         &quot;total&quot;: 3
-    },
-    &quot;0&quot;: {
-        &quot;errors&quot;: &quot;Empty field&quot;,
-        &quot;total&quot;: 2
     }
 }</code>
  </pre>
@@ -318,20 +297,6 @@ access-control-allow-origin: *
       onsubmit="event.preventDefault(); executeTryOut('GETapi-stats-name', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-stats-name"
-                    onclick="tryItOut('GETapi-stats-name');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-stats-name"
-                    onclick="cancelTryOut('GETapi-stats-name');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-stats-name" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -352,18 +317,18 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/name" \
+    --get "http://localhost/DJ-API/project/public/api/name" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"nameSurname\": \"skzpwrfceikrrwfufdnzuxixmspj\"
+    \"nameSurname\": \"nwywcpvkkbjzpibhe\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/name"
+    "http://localhost/DJ-API/project/public/api/name"
 );
 
 const headers = {
@@ -372,7 +337,7 @@ const headers = {
 };
 
 let body = {
-    "nameSurname": "skzpwrfceikrrwfufdnzuxixmspj"
+    "nameSurname": "nwywcpvkkbjzpibhe"
 };
 
 fetch(url, {
@@ -424,20 +389,6 @@ access-control-allow-origin: *
       onsubmit="event.preventDefault(); executeTryOut('GETapi-name', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-name"
-                    onclick="tryItOut('GETapi-name');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-name"
-                    onclick="cancelTryOut('GETapi-name');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-name" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -451,7 +402,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="nameSurname"
                data-endpoint="GETapi-name"
-               value="skzpwrfceikrrwfufdnzuxixmspj"
+               value="nwywcpvkkbjzpibhe"
                data-component="body" hidden>
     <br>
 <p>Must match the regex /^(?:[\p{L}\p{Mn}\p{Pd}'\x{2019}]+\s[\p{L}\p{Mn}\p{Pd}'\x{2019}]+\s?)+$/u. Must be at least 3 characters. Must not be greater than 35 characters.</p>
@@ -471,14 +422,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/stats/email" \
+    --get "http://localhost/DJ-API/project/public/api/stats/email" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/stats/email"
+    "http://localhost/DJ-API/project/public/api/stats/email"
 );
 
 const headers = {
@@ -532,20 +483,6 @@ access-control-allow-origin: *
       onsubmit="event.preventDefault(); executeTryOut('GETapi-stats-email', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-stats-email"
-                    onclick="tryItOut('GETapi-stats-email');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-stats-email"
-                    onclick="cancelTryOut('GETapi-stats-email');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-stats-email" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -566,14 +503,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/email" \
+    --get "http://localhost/DJ-API/project/public/api/email" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/email"
+    "http://localhost/DJ-API/project/public/api/email"
 );
 
 const headers = {
@@ -627,20 +564,6 @@ access-control-allow-origin: *
       onsubmit="event.preventDefault(); executeTryOut('GETapi-email', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-email"
-                    onclick="tryItOut('GETapi-email');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-email"
-                    onclick="cancelTryOut('GETapi-email');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-email" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -661,14 +584,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/stats/phone" \
+    --get "http://localhost/DJ-API/project/public/api/stats/phone" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/stats/phone"
+    "http://localhost/DJ-API/project/public/api/stats/phone"
 );
 
 const headers = {
@@ -722,20 +645,6 @@ access-control-allow-origin: *
       onsubmit="event.preventDefault(); executeTryOut('GETapi-stats-phone', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-stats-phone"
-                    onclick="tryItOut('GETapi-stats-phone');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-stats-phone"
-                    onclick="cancelTryOut('GETapi-stats-phone');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-stats-phone" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -756,14 +665,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/phone" \
+    --get "http://localhost/DJ-API/project/public/api/phone" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/phone"
+    "http://localhost/DJ-API/project/public/api/phone"
 );
 
 const headers = {
@@ -817,20 +726,6 @@ access-control-allow-origin: *
       onsubmit="event.preventDefault(); executeTryOut('GETapi-phone', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-phone"
-                    onclick="tryItOut('GETapi-phone');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-phone"
-                    onclick="cancelTryOut('GETapi-phone');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-phone" hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>

@@ -9,17 +9,17 @@ return [
     /*
      * The HTML <title> for the generated documentation. If this is empty, Scribe will infer it from config('app.name').
      */
-    'title' => null,
+    'title' => 'DJ-API documentation',
 
     /*
      * A short description of your API. Will be included in the docs webpage, Postman collection and OpenAPI spec.
      */
-    'description' => '',
+    'description' => 'In this documentation you can see DJ-API endpoints and try how it works',
 
     /*
      * The base URL displayed in the docs. If this is empty, Scribe will use the value of config('app.url').
      */
-    'base_url' => null,
+    'base_url' => 'http://localhost/DJ-API/project/public/',
 
     /*
      * Tell Scribe what routes to generate documentation for.
@@ -46,7 +46,7 @@ return [
                 /*
                  * [Dingo router only] Match only routes registered under this version. Wildcards are not supported.
                  */
-                'versions' => ['v1'],
+             //   'versions' => ['v1'],
             ],
 
             /*
@@ -143,13 +143,13 @@ return [
     /*
      * Settings for `static` type output.
      */
-    'static' => [
-        /*
-         * HTML documentation, assets and Postman collection will be generated to this folder.
-         * Source Markdown will still be in resources/docs.
-         */
-        'output_path' => 'public/docs',
-    ],
+     'static' => [
+         /*
+          * HTML documentation, assets and Postman collection will be generated to this folder.
+          * Source Markdown will still be in resources/docs.
+          */
+         'output_path' => 'public/docs',
+     ],
 
     /*
      * Settings for `laravel` type output.
@@ -185,13 +185,13 @@ return [
          * Add a Try It Out button to your endpoints so consumers can test endpoints right from their browser.
          * Don't forget to enable CORS headers for your endpoints.
          */
-        'enabled' => true,
+        'enabled' => false,
 
         /**
          * The base URL for the API tester to use (for example, you can set this to your staging URL).
          * Leave as null to use the current app URL (config(app.url)).
          */
-        'base_url' => null,
+        'base_url' => 'http://localhost/DJ-API/project/public/api',
 
         /**
          * Fetch a CSRF token before each request, and add it as an X-XSRF-TOKEN header. Needed if you're using Laravel Sanctum.
@@ -279,7 +279,7 @@ INTRO
      * Setting `laravel.add_routes` to true (above) will also add a route for the collection.
      */
     'postman' => [
-        'enabled' => true,
+        'enabled' => false,
 
         /*
          * Manually override some generated content in the spec. Dot notation is supported.
@@ -296,7 +296,7 @@ INTRO
      * Setting `laravel.add_routes` to true (above) will also add a route for the spec.
      */
     'openapi' => [
-        'enabled' => true,
+        'enabled' => false,
 
         /*
          * Manually override some generated content in the spec. Dot notation is supported.

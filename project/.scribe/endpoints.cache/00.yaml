@@ -29,7 +29,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '[{"Empty field":"2","Field must be at least 3 characters":"3","field must be in Name Surname format, numbers and special characters are not allowed":"7","Too much symbols, max allowed 35 characters":"3"}]'
+        content: '[{"Empty field":"16","Field must be at least 3 characters":"3","field must be in Name Surname format, numbers and special characters are not allowed":"7","Too much symbols, max allowed 35 characters":"3"}]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -70,7 +70,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"2":{"errors":"field must be in Name Surname format, numbers and special characters are not allowed","total":7},"1":{"errors":"Field must be at least 3 characters","total":3},"3":{"errors":"Too much symbols, max allowed 35 characters","total":3},"0":{"errors":"Empty field","total":2}}'
+        content: '{"0":{"errors":"Empty field","total":16},"2":{"errors":"field must be in Name Surname format, numbers and special characters are not allowed","total":7},"1":{"errors":"Field must be at least 3 characters","total":3},"3":{"errors":"Too much symbols, max allowed 35 characters","total":3}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -110,11 +110,11 @@ endpoints:
         name: nameSurname
         description: 'Must match the regex /^(?:[\p{L}\p{Mn}\p{Pd}''\x{2019}]+\s[\p{L}\p{Mn}\p{Pd}''\x{2019}]+\s?)+$/u. Must be at least 3 characters. Must not be greater than 35 characters.'
         required: true
-        example: skzpwrfceikrrwfufdnzuxixmspj
+        example: nwywcpvkkbjzpibhe
         type: string
         custom: []
     cleanBodyParameters:
-      nameSurname: skzpwrfceikrrwfufdnzuxixmspj
+      nameSurname: nwywcpvkkbjzpibhe
     fileParameters: []
     responses:
       -
