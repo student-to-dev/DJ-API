@@ -9,4 +9,6 @@ class Stats extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['phoneErrors', 'phoneLengthError', 'phoneRegionError', 'phoneInterpredableNumbersAfterPlusSignError'];
+
 }
