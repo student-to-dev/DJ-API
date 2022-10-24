@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Phone;
 use App\Models\Stats;
 
 class StatsController extends Controller
@@ -13,6 +14,7 @@ class StatsController extends Controller
 
     public function showStats(Stats $stats)
     {
+        
     }
 
     public function showNameStats()
@@ -27,6 +29,12 @@ class StatsController extends Controller
 
     public function showPhoneStats()
     {
-
+        return response(Phone::all());
+    }
+    public function showPhoneErrors()
+    {
+        $phones = Phone::get('errors');
+        return response($phones);
+        
     }
 }

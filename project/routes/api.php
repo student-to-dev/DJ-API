@@ -23,4 +23,5 @@ Route::get('/email', [emailCon::class, 'store']);
 
 
 Route::get('/stats/phone', [statsCon::class, 'showPhoneStats']);
+Route::get('/stats/phone/errors', [statsCon::class, 'showPhoneErrors']);
 Route::get('/phone', [phoneCon::class, 'store']);
