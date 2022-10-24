@@ -15,31 +15,27 @@ return new class extends Migration
     {
         Schema::create('stats', function (Blueprint $table) {
             $table->id();
-            $table->string('nameErrors'); // total count
-            $table->string('nameWrongCharacter'); // english a-z
-            $table->string('nameNumberInput');
-            $table->string('nameTooLong'); // max15
-            $table->string('surnameTooLong'); // max20
-            $table->string('nameTooShort'); // min3
-            $table->string('surnameTooShort'); // min4
-            $table->string('nameNoSpace');
-            $table->string('nameTooManySpace');
+            $table->string('nameErrors')->nullable(); // total count
+            $table->string('nameWrongCharacter')->nullable(); // english a-z
+            $table->string('nameNumberInput')->nullable();
+            $table->string('nameTooLong')->nullable(); // max15
+            $table->string('nameEmpty')->nullable();
+            $table->string('nameTooShort')->nullable(); // min3
+            $table->string('surnameTooShort')->nullable(); // min4
+            $table->string('nameNoSpace')->nullable();
+            $table->string('nameTooManySpace')->nullable();
 
-            $table->string('emailErrors');
-            $table->string('emailWrongDomain'); //@yahoo.com, @gmail.com, @protonmail.com only
-            $table->string('emailNo@sign');
-            $table->string('emailTooMany@signs');
-            $table->string('emailBadCharacterBefore@sign');
-            $table->string('emailNameTooShort'); // 3
-            $table->string('emailNameTooLong'); // 30
-
-            // /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]
-            // {1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            
-            $table->string('phoneErrors');
-            $table->string('phoneTooShort');
-            $table->string('phoneTooLong');
-            $table->string('phoneNotEuropean');
+            $table->string('emailErrors')->nullable();
+            $table->string('emailWrongDomain')->nullable(); //@yahoo.com, @gmail.com, @protonmail.com only
+            $table->string('emailNo@sign')->nullable();
+            $table->string('emailTooMany@signs')->nullable();
+            $table->string('emailBadCharacterBefore@sign')->nullable();
+            $table->string('emailNameTooShort')->nullable(); // 3
+            $table->string('emailNameTooLong')->nullable(); // 30
+            $table->string('phoneErrors')->nullable();
+            $table->string('phoneTooShort')->nullable();
+            $table->string('phoneTooLong')->nullable();
+            $table->string('phoneNotEuropean')->nullable();
 
             $table->timestamps();
         });
