@@ -104,7 +104,10 @@ class NameController extends Controller
                     }
         return response($messages);
     } else {
-        $nameSurname = Name::create($request->all());
+        $nameSurname = Name::create([
+            'errors' => 'field OK',
+            'nameSurname' => $request->input('nameSurname'),
+        ]);;
         $nameSurname = $request->get('nameSurname');
         return ($nameSurname);
     }
