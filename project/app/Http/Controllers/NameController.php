@@ -102,7 +102,7 @@ class NameController extends Controller
                         }
                         
                     }
-        return $messages;
+        return response($messages);
     }
     }
 }
