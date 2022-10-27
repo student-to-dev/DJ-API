@@ -102,7 +102,7 @@
     <div class="dark-box"></div>
     <div class="content">
         <h1 id="introduction">Introduction</h1>
-<p>In this documentation you can see DJ-API endpoints and try how it works</p>
+<p>In this documentation you can see DJ-API endpoints and example how it works</p>
 <p>This documentation aims to provide all the information you need to work with DJ-API.</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
 You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
@@ -321,7 +321,7 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"nameSurname\": \"nwywcpvkkbjzpibhe\"
+    \"nameSurname\": \"nymjwzchr\"
 }"
 </code></pre></div>
 
@@ -337,7 +337,7 @@ const headers = {
 };
 
 let body = {
-    "nameSurname": "nwywcpvkkbjzpibhe"
+    "nameSurname": "nymjwzchr"
 };
 
 fetch(url, {
@@ -402,7 +402,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="nameSurname"
                data-endpoint="GETapi-name"
-               value="nwywcpvkkbjzpibhe"
+               value="nymjwzchr"
                data-component="body" hidden>
     <br>
 <p>Must match the regex /^(?:[\p{L}\p{Mn}\p{Pd}'\x{2019}]+\s[\p{L}\p{Mn}\p{Pd}'\x{2019}]+\s?)+$/u. Must be at least 3 characters. Must not be greater than 35 characters.</p>

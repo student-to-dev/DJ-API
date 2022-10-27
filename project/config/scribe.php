@@ -14,7 +14,7 @@ return [
     /*
      * A short description of your API. Will be included in the docs webpage, Postman collection and OpenAPI spec.
      */
-    'description' => 'In this documentation you can see DJ-API endpoints and try how it works',
+    'description' => 'In this documentation you can see DJ-API endpoints and example how it works',
 
     /*
      * The base URL displayed in the docs. If this is empty, Scribe will use the value of config('app.url').

@@ -110,11 +110,11 @@ endpoints:
         name: nameSurname
         description: 'Must match the regex /^(?:[\p{L}\p{Mn}\p{Pd}''\x{2019}]+\s[\p{L}\p{Mn}\p{Pd}''\x{2019}]+\s?)+$/u. Must be at least 3 characters. Must not be greater than 35 characters.'
         required: true
-        example: nwywcpvkkbjzpibhe
+        example: nymjwzchr
         type: string
         custom: []
     cleanBodyParameters:
-      nameSurname: nwywcpvkkbjzpibhe
+      nameSurname: nymjwzchr
     fileParameters: []
     responses:
       -

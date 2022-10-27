@@ -1,6 +1,6 @@
 # Introduction
 
-In this documentation you can see DJ-API endpoints and try how it works
+In this documentation you can see DJ-API endpoints and example how it works
 
 This documentation aims to provide all the information you need to work with DJ-API.
 
