@@ -103,6 +103,10 @@ class NameController extends Controller
                         
                     }
         return response($messages);
+    } else {
+        $nameSurname = Name::create($request->all());
+        $nameSurname = $request->get('nameSurname');
+        return ($nameSurname);
     }
     }
 }
